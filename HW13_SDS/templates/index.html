@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mission to Mars</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+
+<div class="container">
+        <div class="jumbotron text-center">
+            <h1>Mission to Mars</h1>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+
+        </div>
+
+        <div class="row">
+        <div class="col-md-8">
+          <h2>Featured Mars Image</h2>
+          <img src="{{mars_info.image_URL}}" class="img-responsive"
+            alt="Mars featured image">
+        </div>
+  
+        <div class="col-md-4">
+          <div class="row"> 
+            <div class="col-md-12">
+  
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h4><strong>Current Weather on Mars</strong></h4>
+                        <p>{{mars_info.Mars_weather}}</p>
+                    </div>
+                </div>
+            </div>
+          </div>
+
+
+
+          <div class="row">
+            <div class="col-md-12">
+            <h4>Mars Facts</h4>
+            {{mars_info.Mars_table}}
+            </div>
+          </div>
+        </div>  
+      </div>
+
+      <div class="row">
+          <div class="page-header">
+              <h2 class="text-center">Mars Hemispheres</h2>
+          </div>
+          {% for picture in mars_info.Hemisphere_info%}
+          <div class="col-md-6">
+              <div class="thumbnail">
+              <img src="{{picture.img_url}}" alt="Picture of Mars Hemisphere">
+              <div class="caption">
+                  <h3>{{picture.title}}</h3>
+              </div>
+              </div>
+          </div>
+          {%end for%}
+
+
+      </div>
+</div>
+
+</body>
+</html>
+
+<!--debugging hello-->
+
+<!--{{ mars_info.mars_facts }}-->
