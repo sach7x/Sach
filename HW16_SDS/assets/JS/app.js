@@ -4,7 +4,6 @@
 // =========
 // Follow your written instructions and create a scatter plot with D3.js.
 
-// create canvas
 var svgWidth = 1000;
 var svgHeight = 750;
 
@@ -15,7 +14,7 @@ var margin = {
     left: 100
 };
 
-var width = svgWidth - magin.left - margin.right;
+var width = svgWidth - margin.left - margin.right;
 var height = svgHeight - margin.top - margin.bottom;
 
 // create SVG wrapper
@@ -36,16 +35,28 @@ d3.select('.chart')
   .append('div')
   .attr('class', 'tooltip');
 
-// retrieve data from CSV file and execute everything below
-d3.csv('../../data/data.csv', function(err, wellnessData) {
-    if (err) throw err;
-
+// // retrieve data from CSV file and execute everything below
+d3.csv('./../../data/data.csv', function(wellnessData) {
+    // if (err) throw err;
+console.log(wellnessData);
 //parse data
 wellnessData.forEach(function(data) {
     data.disability = +data.disability;
     data.depression = +data.depression;
 });
 
+// function used for updating x-scale var upon click on axis label
+function xScale(depression, chosenXAxis) {
+    // create scales
+    var xLinearScale = d3.scaleLinear()
+      .domain([d3.min(depression, d => d[chosenXAxis]) * 0.8,
+        d3.max(depression, d => d[chosenXAxis]) * 1.2
+      ])
+      .range([0, width]);
+  
+    return xLinearScale;
+  
+  }
 // xLinearScale function above csv import
 var xLinearScale = xScale(wellnessData, chosenXAxis);
 
@@ -64,9 +75,10 @@ chartGroup.append("g")
 .attr("transform", `translate(0, ${height})`)
 .call(bottomAxis);
 
-// append x axis labels
-chartgoup.append("text")
-    .attr("transform", "translate(" + (chartWidth/3) + "," + (chartHeight + margin.top + 30) + ")") 
+// append x axis labels..can use orient bottom?
+chartGroup.append("text")
+//    .attr("transform", "translate(" + (chartWidth/3) + "," + (chartHeight + margin.top + 30) + ")") 
+    .attr("transform", `translate(${width / 1.5}, ${height + 20})`)    
     .attr("class", "axisText")
     .text("Percentage of the Population with a Disability");
 
@@ -74,11 +86,11 @@ chartgoup.append("text")
 chartGroup.append("g")
     .call(leftAxis);
 
-// append y axis labels
+// append y axis labels..can also use orient left?
 chartGroup.append("text")
     .attr("transform", "rotate(-90)")
     .attr("y", 0 - margin.left + 40)
-    .attr("x", 0 - (chartHeight))
+    .attr("x", 0 - (height/1.5))
     .attr("dy", "1em")
     .attr("class", "axisText")
     .text("Percentage of the Population with Depression");
@@ -96,11 +108,12 @@ var toolTip = d3.tip()
 
 chartGroup.call(toolTip);
 
-// append datapoints to chart
+// append all datapoints as circles to chart
 var circlesGroup = chartGroup.selectAll("circle")
 .data(wellnessData)
 .enter()
 .append("circle")
+//.attr("cx", d=> xLinearScale(d.disability)) <--same?
 .attr("cx", d => xLinearScale(d[chosenXAxis]))
 .attr("cy", d => yLinearScale(d.depression))
 .attr("r", 20)
@@ -114,9 +127,6 @@ var circlesGroup = chartGroup.selectAll("circle")
 .on("mousout", function(data, index) {
     toolTip.hide(data);
 });
-})
 
-
-
-
+});
 

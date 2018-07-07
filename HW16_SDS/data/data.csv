@@ -1,0 +1,52 @@
+id,state,abbr,disability,depression
+1,Alabama,AL,16.3,21.3
+2,Alaska,AK,11.2,15.6
+3,Arizona,AZ,12.8,18.7
+4,Arkansas,AR,16.9,21.5
+5,California,CA,10.6,13.3
+6,Colorado,CO,10.7,17
+7,Connecticut,CT,11,18.3
+8,Delaware,DE,11.9,18.3
+9,District of Columbia,DC,11.7,18.1
+10,Florida,FL,13.4,16.2
+11,Georgia,GA,12.4,18.3
+12,Hawaii,HI,11.7,10.7
+13,Idaho,ID,12.7,19.5
+14,Illinois,IL,10.9,16.7
+15,Indiana,IN,13.9,20.7
+16,Iowa,IA,11.5,18.7
+17,Kansas,KS,12.9,18.6
+18,Kentucky,KY,17.6,23.9
+19,Louisiana,LA,14.8,18.7
+20,Maine,ME,16.1,23.7
+21,Maryland,MD,10.6,15.9
+22,Massachusetts,MA,11.6,21.7
+23,Michigan,MI,14.4,20.5
+24,Minnesota,MN,10.8,18.2
+25,Mississippi,MS,16.5,19.9
+26,Missouri,MO,14.7,21.7
+27,Montana,MT,13.2,20.4
+28,Nebraska,NE,11.5,17.7
+29,Nevada,NV,13.4,15.6
+30,New Hampshire,NH,12.2,21
+31,New Jersey,NJ,10.5,13.4
+32,New Mexico,NM,14.7,21.1
+33,New York,NY,11.5,15.9
+34,North Carolina,NC,13.8,19
+35,North Dakota,ND,10.6,17.3
+36,Ohio,OH,13.9,20.9
+37,Oklahoma,OK,16.1,21.8
+38,Oregon,OR,15.2,24
+39,Pennsylvania,PA,13.8,19.7
+40,Rhode Island,RI,14,20.6
+41,South Carolina,SC,14.8,19.9
+42,South Dakota,SD,12.1,16.6
+43,Tennessee,TN,15.7,21.4
+44,Texas,TX,11.7,14.6
+45,Utah,UT,9.6,20.7
+46,Vermont,VT,14.8,21.8
+47,Virginia,VA,11.5,17.4
+48,Washington,WA,13,21.6
+49,West Virginia,WV,19.9,23.6
+50,Wisconsin,WI,11.9,17
+51,Wyoming,WY,12.4,19
